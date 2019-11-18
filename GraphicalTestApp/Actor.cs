@@ -24,24 +24,24 @@ namespace GraphicalTestApp
         public float X
         {
             //## Implement the relative X coordinate ##//
-            get { return 0; }
+            get { return _localTransform.m13; }
             set { }
         }
         public float XAbsolute
         {
             //## Implement the absolute X coordinate ##//
-            get { return 0; }
+            get { return _globalTransform.m13; }
         }
         public float Y
         {
             //## Implement the relative Y coordinate ##//
-            get { return 0; }
+            get { return _localTransform.m23; }
             set { }
         }
         public float YAbsolute
         {
             //## Implement the absolute Y coordinate ##//
-            get { return 0; }
+            get { return _globalTransform.m23; }
         }
 
         public float GetRotation()
@@ -53,6 +53,8 @@ namespace GraphicalTestApp
         public void Rotate(float radians)
         {
             //## Implement rotating _localTransform ##//
+            _localTransform.RotateZ(radians);
+            UpdateTransform();
         }
 
         public float GetScale()
@@ -69,6 +71,14 @@ namespace GraphicalTestApp
         public void AddChild(Actor child)
         {
             //## Implement AddChild(Actor) ##//
+            if (child.Parent != null)
+            {
+                return;
+            }
+
+            child.Parent = this;
+
+            _children.Add(child);
         }
 
         public void RemoveChild(Actor child)
