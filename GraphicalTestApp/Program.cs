@@ -13,20 +13,21 @@ namespace GraphicalTestApp
             Game game = new Game(1280, 760, "Graphical Test Application");
 
             Actor root = new Actor();
+            //Actor root1 = new Actor();
             game.Root = root;
+            //game.Root = root1;
 
-            //Player
-            Entity player = new Entity(640, 380);
+            //Players
+            Tank player = new Tank(720, 300);
+            Tank player1 = new Tank("PNG/Default size/tank_huge.png");
 
-            //Sprite
-            Sprite sprite = new Sprite("tank_green.png");
+                      
+            //HitBoxes
+            
+            AABB tankBox1 = new AABB(40, 40);
 
-            //HitBox
-            AABB aABB = new AABB(40, 40);
-
-            root.AddChild(player);
-            player.AddChild(sprite);
-            player.AddChild(aABB);
+            root.AddChild(player1);
+            root.AddChild(player);                                               
 
             //## Set up game here ##//
 
