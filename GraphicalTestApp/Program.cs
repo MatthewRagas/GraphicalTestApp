@@ -20,11 +20,7 @@ namespace GraphicalTestApp
             //Players
             Tank player = new Tank(720, 300);
             Tank player1 = new Tank("PNG/Default size/tank_huge.png");
-
-                      
-            //HitBoxes
-            
-            AABB tankBox1 = new AABB(40, 40);
+                                                         
 
             root.AddChild(player1);
             root.AddChild(player);                                               

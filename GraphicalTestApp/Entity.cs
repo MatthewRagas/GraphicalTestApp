@@ -16,8 +16,8 @@ namespace GraphicalTestApp
         public float XAcceleration
         {
             //## Implement acceleration on the X axis ##//
-            get { return _velocity.x; }
-            set { _velocity.x = value; }
+            get { return _acceleration.x; }
+            set { _acceleration.x = value; }
         }
         public float YVelocity
         {
@@ -28,14 +28,10 @@ namespace GraphicalTestApp
         public float YAcceleration
         {
             //## Implement acceleration on the Y axis ##//
-            get { return 0; }
-            set { }
+            get { return _acceleration.y; }
+            set { _acceleration.y = value; }
         }
-
-        public Entity()
-        {
-
-        }
+        
         //Creates an Entity at the specified coordinates
         public Entity(float x, float y) : base()
         {

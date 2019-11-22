@@ -9,15 +9,16 @@ namespace GraphicalTestApp
     class Tank : Entity
     {
         private Sprite _tank;
-
+        private AABB _tankBox;
 
 
         public Tank(float x, float y, string path) : base(x, y)
         {
             _tank = new Sprite(path);
-            AddChild(_tank);            
-
-            //OnUpdate += MoveRight();
+            _tankBox = new AABB(20, 20);
+            
+            AddChild(_tank);
+            AddChild(_tankBox);
         }
 
         public Tank() : this(640, 380, "tank_green.png")
@@ -40,7 +41,7 @@ namespace GraphicalTestApp
         {
             if(Input.IsKeyDown(68))
             {
-                Rotate(4 * deltaTime);
+                Rotate(2 * deltaTime);
             }            
         }
 
@@ -48,15 +49,15 @@ namespace GraphicalTestApp
         {
             if(Input.IsKeyDown(65))
             {
-                Rotate(-4 * deltaTime);
+                Rotate(-2 * deltaTime);
             }
         }
 
         public void Moveforward()
-        {
+        {            
             if(Input.IsKeyDown(87))
             {
-                
+                _tankBox.X = 260;
             }
             else
             {
