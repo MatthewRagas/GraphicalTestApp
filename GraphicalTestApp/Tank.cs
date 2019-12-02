@@ -10,65 +10,53 @@ namespace GraphicalTestApp
     {
         private Sprite _tank;
         private AABB _tankBox;
+        private TankTurret _turret;
 
 
         public Tank(float x, float y, string path) : base(x, y)
         {
             _tank = new Sprite(path);
             _tankBox = new AABB(20, 20);
+            _turret = new TankTurret(0,0);
             
             AddChild(_tank);
             AddChild(_tankBox);
+            AddChild(_turret);
         }
 
-        public Tank() : this(640, 380, "tank_green.png")
+        public Tank() : this(640, 380, "tankBody_green.png")
         {
 
         }        
 
         public Tank(string path) : this(640, 380, path)
         {
-            
-           
+                       
         }
 
-        public Tank(float x, float y) : this(x, y, "tank_green.png")
+        public Tank(float x, float y) : this(x, y, "tankBody_green.png")
         {
 
-        }
-
-        public void RotateRight(float deltaTime)
-        {
-            if(Input.IsKeyDown(68))
-            {
-                Rotate(2 * deltaTime);
-            }            
-        }
-
-        public void RotateLeft(float deltaTime)
-        {
-            if(Input.IsKeyDown(65))
-            {
-                Rotate(-2 * deltaTime);
-            }
-        }
+        }        
 
         public void Moveforward()
         {            
             if(Input.IsKeyDown(87))
+            {                
+                YVelocity = 150;
+            }
+            else if(Input.IsKeyDown(83))
             {
-                _tankBox.X = 260;
+                YVelocity = -80;
             }
             else
-            {
-                XVelocity = 0;
+            {                
+                YVelocity = 0;
             }
-        }
+        }        
 
         public override void Update(float deltaTime)
-        {
-            RotateRight(deltaTime);
-            RotateLeft(deltaTime);
+        {            
             Moveforward();
             base.Update(deltaTime);
         }

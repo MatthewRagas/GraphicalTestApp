@@ -18,11 +18,10 @@ namespace GraphicalTestApp
             //game.Root = root1;
 
             //Players
-            Tank player = new Tank(720, 300);
-            Tank player1 = new Tank("PNG/Default size/tank_huge.png");
+            InvisibleTank player = new InvisibleTank(640, 380);            
                                                          
 
-            root.AddChild(player1);
+            //root.AddChild(player1);
             root.AddChild(player);                                               
 
             //## Set up game here ##//
