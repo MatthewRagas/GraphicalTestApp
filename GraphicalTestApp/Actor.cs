@@ -86,20 +86,19 @@ namespace GraphicalTestApp
             }
 
             child.Parent = this;
-
-            _children.Add(child);
+            
+            _additions.Add(child);
         }
 
         public void RemoveChild(Actor child)
         {
-            //## Implement RemoveChild(Actor) ##//
-            bool isMyChild = _children.Remove(child);
-
-            if(isMyChild)
+            //## Implement RemoveChild(Actor) ##//           
+            if(child.Parent == this)
             {
                 child.Parent = null;
+                _removals.Add(child);
                 child._localTransform = child._globalTransform;
-            }
+            }            
         }
 
         public void UpdateTransform()

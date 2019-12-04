@@ -17,5 +17,19 @@ namespace GraphicalTestApp
 
             AddChild(_bulletBox);
         }
+
+        public void shoot()
+        {                        
+            YVelocity = 400;           
+        }
+
+        public override void Update(float deltaTime)
+        {
+            if(Input.IsKeyPressed(32))
+            {
+                shoot();
+            }            
+            base.Update(deltaTime);
+        }
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="AABB.cs" />
     <Compile Include="Input.cs" />
+    <Compile Include="InvisibleBullet.cs" />
     <Compile Include="InvisibleTank.cs" />
     <Compile Include="Matrix3.cs" />
     <Compile Include="Matrix4.cs" />

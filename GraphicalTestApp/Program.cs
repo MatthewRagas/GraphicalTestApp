@@ -19,8 +19,6 @@ namespace GraphicalTestApp
 
             //Players
             InvisibleTank player = new InvisibleTank(640, 380);            
-                                                         
-
             //root.AddChild(player1);
             root.AddChild(player);                                               
 

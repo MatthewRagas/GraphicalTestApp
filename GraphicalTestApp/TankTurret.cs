@@ -9,12 +9,13 @@ namespace GraphicalTestApp
     class TankTurret : Actor
     {
         private Sprite _turret;
-        private Bullet _bullet;
+        private InvisibleBullet _bullet;
+        private bool shot;
 
         public TankTurret(float x, float y)
         {
             _turret = new Sprite("tankGreen_barrel2_outline.png");
-            _bullet = new Bullet(x, y);
+            _bullet = new InvisibleBullet(x, y);
 
             X = 0;
             Y = 0;
@@ -23,6 +24,15 @@ namespace GraphicalTestApp
 
             AddChild(_bullet);
             AddChild(_turret);
+        }
+
+        public void shoot()
+        {
+            if (Input.IsKeyPressed(32))
+            {
+                RemoveChild(_bullet);                
+                Parent.Parent.Parent.AddChild(_bullet);
+            }                                                    
         }
 
         public void RotateRight(float deltaTime)
@@ -39,10 +49,11 @@ namespace GraphicalTestApp
             {
                 Rotate(-2 * deltaTime);
             }
-        }
+        }       
 
         public override void Update(float deltaTime)
         {
+            shoot();            
             RotateRight(deltaTime);
             RotateLeft(deltaTime);
             base.Update(deltaTime);

@@ -16,14 +16,14 @@ namespace GraphicalTestApp
         }
 
         public override void Update(float deltaTime)
-        {
-            X = _tank.XAbsolute;
-            Y = _tank.YAbsolute;
+        {           
             //_tank.X = 0;
             _tank.Y = 0;
             RotateRight(deltaTime);
             RotateLeft(deltaTime);
             base.Update(deltaTime);
+            X = _tank.XAbsolute;
+            Y = _tank.YAbsolute;
         }
 
         public void RotateRight(float deltaTime)
