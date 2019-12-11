@@ -16,7 +16,7 @@ namespace GraphicalTestApp
         public Tank(float x, float y, string path) : base(x, y)
         {
             _tank = new Sprite(path);
-            _tankBox = new AABB(20, 20);
+            _tankBox = new AABB(40, 40);
             _turret = new TankTurret(0,0);
             
             AddChild(_tank);
@@ -50,7 +50,7 @@ namespace GraphicalTestApp
                 YVelocity = -80;
             }
             else
-            {                
+            {
                 YVelocity = 0;
             }
         }        
@@ -58,6 +58,7 @@ namespace GraphicalTestApp
         public override void Update(float deltaTime)
         {            
             Moveforward();
+            _tankBox.DetectCollision(Program.box);
             base.Update(deltaTime);
         }
     }

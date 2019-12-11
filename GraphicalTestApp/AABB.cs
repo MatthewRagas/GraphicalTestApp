@@ -15,19 +15,19 @@ namespace GraphicalTestApp
             get { return YAbsolute - Height / 2; }
         }
 
-        //Returns the Y coordinate at the top of the box
+        //Returns the Y coordinate at the bottom of the box
         public float Bottom
         {
             get { return YAbsolute + Height / 2; }
         }
 
-        //Returns the X coordinate at the top of the box
+        //Returns the X coordinate of the left side of the box
         public float Left
         {
             get { return XAbsolute - Width / 2; }
         }
 
-        //Returns the X coordinate at the top of the box
+        //Returns the X coordinate of the right side of the box
         public float Right
         {
             get { return XAbsolute + Width / 2; }
@@ -43,11 +43,27 @@ namespace GraphicalTestApp
         public bool DetectCollision(AABB other)
         {
             //## Implement DetectCollision(AABB) ##//
-            //if (/*Colisstion*/)
+            if (Left < other.Right && Right > other.Left && Top < other.Bottom && Bottom > other.Top)
+            {
+                _color = Raylib.Color.BLUE;
+                return true;
+            }
+            //else if (Right == other.Left)
             //{
             //    _color = Raylib.Color.BLUE;
             //    return true;
-            //}                
+            //}
+            //else if (Top == other.Bottom)
+            //{
+            //    _color = Raylib.Color.BLUE;
+            //    return true;
+            //}
+            //else if (Bottom == other.Top)
+            //{
+            //    _color = Raylib.Color.BLUE;
+            //    return true;
+            //}
+            _color = Raylib.Color.RED;
             return false;
         }
 
