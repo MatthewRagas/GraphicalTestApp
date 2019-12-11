@@ -38,7 +38,7 @@ namespace GraphicalTestApp
         {
             Width = width;
             Height = height;
-        }
+        }        
 
         public bool DetectCollision(AABB other)
         {
@@ -47,22 +47,7 @@ namespace GraphicalTestApp
             {
                 _color = Raylib.Color.BLUE;
                 return true;
-            }
-            //else if (Right == other.Left)
-            //{
-            //    _color = Raylib.Color.BLUE;
-            //    return true;
-            //}
-            //else if (Top == other.Bottom)
-            //{
-            //    _color = Raylib.Color.BLUE;
-            //    return true;
-            //}
-            //else if (Bottom == other.Top)
-            //{
-            //    _color = Raylib.Color.BLUE;
-            //    return true;
-            //}
+            }           
             _color = Raylib.Color.RED;
             return false;
         }

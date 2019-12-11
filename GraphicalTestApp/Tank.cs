@@ -37,10 +37,20 @@ namespace GraphicalTestApp
         public Tank(float x, float y) : this(x, y, "tankBody_green.png")
         {
 
-        }        
+        }
+
+        public AABB GetAABB
+        {            
+            get
+            {
+                return _tankBox;
+            }
+        }
+
 
         public void Moveforward()
-        {            
+        {   
+            
             if(Input.IsKeyDown(87))
             {                
                 YVelocity = 150;
@@ -56,9 +66,9 @@ namespace GraphicalTestApp
         }        
 
         public override void Update(float deltaTime)
-        {            
-            Moveforward();
-            _tankBox.DetectCollision(Program.box);
+        {                       
+            _tankBox.DetectCollision(Program.box);                                                                           
+            Moveforward();            
             base.Update(deltaTime);
         }
     }
